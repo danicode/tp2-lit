@@ -1,7 +1,9 @@
-# tp2-lit
+# 🌟 tp2-lit
+
+## 📄 Descripción
 Este proyecto consiste en la creación de componentes web personalizados utilizando la micro librería Lit de Google. Los componentes incluyen un mensaje de alerta y un formulario de inicio de sesión, integrados en una página de inicio de sesión, así como la utilización de Router de Vaadin.
 
-## Arquitectura de Carpetas
+## 🗂️ Arquitectura de Carpetas
 - **components/**: Contiene los archivos JavaScript de los componentes personalizados.
   - `alert-message.js`: Componente de mensaje de alerta.
   - `user-login.js`: Componente de formulario de inicio de sesión.
@@ -22,7 +24,7 @@ Este proyecto consiste en la creación de componentes web personalizados utiliza
 - **index.js**: Archivo principal de JavaScript que inicializa y configura los componentes y el enrutador.
 - **index.html**: Página principal del proyecto.
 
-## Diseño y Funcionamiento de los Componentes
+## 🛠️ Diseño y Funcionamiento de los Componentes
 
 ### `alert-message`
 Este componente muestra mensajes de alerta con diferentes estilos según el tipo de alerta (`success`, `warning`, `error`, `info`). Se oculta automáticamente si el atributo `message` está vacío o no se proporciona.
@@ -51,13 +53,13 @@ Página de inicio que se muestra después de un inicio de sesión exitoso.
 ### `public-layout` y `auth-layout`
 Layouts utilizados para estructurar las páginas públicas y autenticadas de la aplicación.
 
-## Enrutamiento
+## 🚦 Enrutamiento
 Se utiliza Vaadin Router para gestionar las rutas de la aplicación. Las rutas se definen en `index.js` y se configuran para mostrar las páginas correspondientes.
 
-## Estilos y Mixins
+## 🎨 Estilos y Mixins
 Los estilos se gestionan utilizando archivos CSS globales y variables para colores. Los mixins se utilizan para compartir lógica común entre componentes, siguiendo buenas prácticas de modularización y separación de preocupaciones.
 
-## Herramientas Utilizadas
-- **Vite**: Utilizado para el desarrollo rápido y eficiente del proyecto.
-- **Lit**: Utilizado para crear componentes web personalizados con JavaScript.
-- **Vaadin Router**: Utilizado para gestionar las rutas de la aplicación.
+## 🛠️ Herramientas Utilizadas
+- **⚡Vite**: Utilizado para el desarrollo rápido y eficiente del proyecto.
+- **✨Lit**: Utilizado para crear componentes web personalizados con JavaScript.
+- **🌐Vaadin Router**: Utilizado para gestionar las rutas de la aplicación.
