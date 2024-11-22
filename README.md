@@ -56,3 +56,8 @@ Se utiliza Vaadin Router para gestionar las rutas de la aplicación. Las rutas s
 
 ## Estilos y Mixins
 Los estilos se gestionan utilizando archivos CSS globales y variables para colores. Los mixins se utilizan para compartir lógica común entre componentes, siguiendo buenas prácticas de modularización y separación de preocupaciones.
+
+## Herramientas Utilizadas
+- **Vite**: Utilizado para el desarrollo rápido y eficiente del proyecto.
+- **Lit**: Utilizado para crear componentes web personalizados con JavaScript.
+- **Vaadin Router**: Utilizado para gestionar las rutas de la aplicación.
