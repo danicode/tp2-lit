@@ -6,6 +6,7 @@ export class RouterApp extends LitElement {
   firstUpdated() {
     const router = new Router(this.shadowRoot.querySelector('#outlet'));
     router.setRoutes([
+      { path: '/', component: 'home-page' },
       { path: '/home', component: 'home-page' },
       { path: '/login', component: 'login-page' },
       { path: '(.*)', component: 'not-found-page' } // Ruta 404
