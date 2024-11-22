@@ -60,15 +60,27 @@ export class LoginPage extends LitElement {
 
   static styles = loginPageStyles;
 
+  titleTemplate() {
+    return html`
+      <h1>🧊 Welcome!!! <span class="info" title="Information about this page" @click="${ this.handleShowInfo }">ℹ️</span></h1>
+    `;
+  }
+
+  alertTemplate() {
+    return html`
+      ${ this.alertType 
+        ? html`<alert-component .type=${ this.alertType } .message=${ this.alertMessage } ></alert-component>` 
+        : nothing 
+      }
+    `;
+  }
+
   render() {
     return html`
       <public-layout>
-        <h1>🧊 Welcome!!! <span class="info" title="Information about this page" @click="${ this.handleShowInfo }">ℹ️</span></h1>
+        ${ this.titleTemplate() }
         <login-component></login-component>
-        ${ this.alertType 
-          ? html`<alert-component .type=${ this.alertType } .message=${ this.alertMessage } ></alert-component>` 
-          : nothing 
-        }
+        ${ this.alertTemplate() }
       </public-layout>
     `;
   }

@@ -14,22 +14,38 @@ export class HomePage extends AuthenticationMixin(LitElement) {
     Router.go('/login');
   }
 
+  headerTemplate() {
+    return html`
+      <dile-nav class="styled" slot="header" menu="right">
+        <h2 slot="title">🧊 Home Page</h2>
+        <dile-menu-hamburger slot="menu">
+          <nav class="menu" slot="menu">
+            <p @click="${ this.handleLogout }">💻 Logout</p>
+          </nav>
+        </dile-menu-hamburger>
+        <span slot="actions">🤖 ${ this.username }</span>
+      </dile-nav>
+    `;
+  }
+
+  mainTemplate() {
+    return html`<div class="container" slot="main">
+      <img src="../../public/wallpaper.png" />
+    </div>`;
+  }
+
+  footerTemplate() {
+    return html`
+      <p slot="footer">🚀 Powered by danicode</p>
+    `;
+  }
+
   render() {
     return html`
       <auth-layout>
-        <dile-nav class="styled" slot="header" menu="right">
-          <h2 slot="title">🧊 Home Page</h2>
-          <dile-menu-hamburger slot="menu">
-            <nav class="menu" slot="menu">
-              <p @click="${ this.handleLogout }">💻 Logout</p>
-            </nav>
-          </dile-menu-hamburger>
-          <span slot="actions">🤖 ${ this.username }</span>
-        </dile-nav>
-        <div class="container" slot="main">
-          <img src="../../public/wallpaper.png" />
-        </div>
-        <p slot="footer">🚀 Powered by danicode</p>
+        ${ this.headerTemplate() }
+        ${ this.mainTemplate() }
+        ${ this.footerTemplate() }
       </auth-layout>
     `;
   }
