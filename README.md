@@ -26,31 +26,31 @@ Este proyecto consiste en la creación de componentes web personalizados utiliza
 
 ## 🛠️ Diseño y Funcionamiento de los Componentes
 
-### `alert-message`
+### 🚨 `alert-message`
 Este componente muestra mensajes de alerta con diferentes estilos según el tipo de alerta (`success`, `warning`, `error`, `info`). Se oculta automáticamente si el atributo `message` está vacío o no se proporciona.
 
-- **Atributos**:
+- 💎 **Atributos**:
   - `type`: Especifica el tipo de alerta (`success`, `warning`, `error`, `info`).
   - `message`: Especifica el mensaje que se mostrará en la alerta.
 
-### `user-login`
+### 🔐 `user-login`
 Este componente muestra un formulario de inicio de sesión con campos para ingresar el nombre de usuario y la contraseña. Cuando se envía el formulario, emite un evento personalizado `login-result` con el resultado del inicio de sesión (`success` o `error`).
 
-- **Mixins Utilizados**:
+- 🚀 **Mixins Utilizados**:
   - `form-mixin.js`: Para la lógica común del formulario.
   - `dispatch-event-mixin.js`: Para manejar la lógica de `dispatchEvent`.
   - `auth-mixin.js`: Para la lógica de autenticación.
 
-### `login-page`
+### 📋 `login-page`
 Este componente contenedor intercepta el evento `login-result` emitido por `user-login` y actualiza las propiedades de `alert-message` en función del resultado del inicio de sesión.
 
-- **Funcionamiento**:
+- ⚙️ **Funcionamiento**:
   - Escucha el evento `login-result` y actualiza el mensaje de alerta con el resultado del inicio de sesión.
 
-### `home-page`
+### 🏠 `home-page`
 Página de inicio que se muestra después de un inicio de sesión exitoso.
 
-### `public-layout` y `auth-layout`
+### 🌎 `public-layout` y 🔒 `auth-layout`
 Layouts utilizados para estructurar las páginas públicas y autenticadas de la aplicación.
 
 ## 🚦 Enrutamiento
