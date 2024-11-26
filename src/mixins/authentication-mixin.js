@@ -1,4 +1,4 @@
-import { login as authServiceLogin } from '../services/auth-service.js';
+import { login as authServiceLogin, logout as authServiceLogout } from '../services/auth-service.js';
 
 export const AuthenticationMixin = (superclass) => class extends superclass {
   static get properties() {
@@ -12,18 +12,31 @@ export const AuthenticationMixin = (superclass) => class extends superclass {
     this.username = localStorage.getItem('username') || 'Guest';
   }
 
-  login(email, password) {
-    const token = authServiceLogin(email, password);
-    if (token) {
-      localStorage.setItem('authToken', token);
-      localStorage.setItem('username', email);
+  async login(email, password) {
+    try {
+      const response = await authServiceLogin(email, password);
+      if (response.success) {
+        localStorage.setItem('authToken', response.token);
+        localStorage.setItem('username', email);
+      }
+      return response;
+    } catch (error) {
+      console.error('login error');
+      throw error;
     }
-    return token;
   }
 
-  logout() {
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('username');
+  async logout() {
+    try {
+      const response = await authServiceLogout();
+      if (response.success) {
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('username');
+      }
+      return response;
+    } catch (error) {
+      throw error;
+    }
   }
 
   isAuthenticated() {

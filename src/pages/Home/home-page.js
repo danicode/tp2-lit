@@ -1,31 +1,13 @@
 import { LitElement, html } from 'lit';
-import { Router } from '@vaadin/router';
-import '@dile/ui/components/nav/nav.js';
-import '@dile/ui/components/menu-hamburger/menu-hamburger.js';
 import '../../layouts/Auth/auth-layout.js';
-import { AuthenticationMixin } from '../../mixins/authentication-mixin.js';
 import { homePageStyles } from './home-page-styles.js';
+import '../../components/Header/header-component.js';
 
-export class HomePage extends AuthenticationMixin(LitElement) {
+export class HomePage extends LitElement {
   static styles = homePageStyles;
 
-  handleLogout() {
-    this.logout();
-    Router.go('/login');
-  }
-
   headerTemplate() {
-    return html`
-      <dile-nav class="styled" slot="header" menu="right">
-        <h2 slot="title">🧊 Home Page</h2>
-        <dile-menu-hamburger slot="menu">
-          <nav class="menu" slot="menu">
-            <p @click="${ this.handleLogout }">💻 Logout</p>
-          </nav>
-        </dile-menu-hamburger>
-        <span slot="actions">🤖 ${ this.username }</span>
-      </dile-nav>
-    `;
+    return html`<header-component slot="header"></header-component>`;
   }
 
   mainTemplate() {

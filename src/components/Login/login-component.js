@@ -22,25 +22,36 @@ export class LoginComponent extends DispatchCustomEventMixin(FormMixin(Authentic
 
   static styles = loginComponentStyles;
 
-  handleSubmitLogin(event) {
+  async handleSubmitLogin(event) {
     this.handleSubmit(event);
+    this.dispatchCustomEvent('loading-start', {});
     const { email, password } = this.formData;
     const message = this.validateForm(email, password);
     if (message) {
       this.dispatchCustomEvent('login:validation', {
         message: message
       });
+      this.dispatchCustomEvent('loading-end', {});
     } else {
-      const token = this.login(email, password);
-      if (token) {
-        this.dispatchCustomEvent('login:success', {
-          email: email
-        });
-        this.initProperties();
-      } else {
+      try {
+        const response = await this.login(email, password);      
+        if (response.success) {
+          this.dispatchCustomEvent('login:success', {
+            email: email
+          });
+          this.initProperties();
+        } else {
+          this.dispatchCustomEvent('login:error', {
+            email: email
+          });
+        }
+      } catch (error) {
+        console.error(error);
         this.dispatchCustomEvent('login:error', {
           email: email
         });
+      } finally {
+        this.dispatchCustomEvent('loading-end', {});
       }
     }
   }
